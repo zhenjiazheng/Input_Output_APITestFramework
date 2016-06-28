@@ -1,0 +1,1990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>report__test_suite</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6B8E23; }
+.failClass  { background-color: #CD8500; }
+.errorClass { background-color: #CD0000; }
+.passCase   { color: #6B8E23; }
+.failCase   { color: #CD8500; font-weight: bold; }
+.errorCase  { color: #CD0000; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>report__test_suite</h1>
+<p class='attribute'><strong>Start Time:</strong> 2016-06-28 14:04:33</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:34.942932</p>
+<p class='attribute'><strong>Status:</strong> PASS 2 FAILURE 14 ERROR 3</p>
+
+<p class='description'>/Users/zhengandy/Documents/workspace/RequestsProject/report/milestones_June_add_client/API_milestones_June_add_client_201606281404.html</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>COUNT</td>
+    <td>PASS</td>
+    <td>FAIL</td>
+    <td>ERROR</td>
+    <td>VIEW</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>API.UnitTest</td>
+    <td>19</td>
+    <td>2</td>
+    <td>14</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c1',19)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_001业务服务接口－autoPayByOfflineMode 异常 业务员选择线下支付自动完成商户试用到支付 Session过期</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        FAIL</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"47c493c5-0f83-4c14-b658-d629d24b108a"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'47c493c5-0f83-4c14-b658-d629d24b108a'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_logout'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'reason': u'this is reason.', u'sessionId': u'', u'businessId': 100}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_autoPayByOfflineMode'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+There is no error code response for the abnormally case.
+Step 3 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_002业务服务接口－autoPayByOfflineMode 异常 业务员选择线下支付自动完成商户试用到支付 业务不存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        FAIL</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"4c195ee9-2f14-43a8-ae29-98edbfd24801"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'reason': u'this is reason.', u'sessionId': u'4c195ee9-2f14-43a8-ae29-98edbfd24801', u'businessId': 100}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_autoPayByOfflineMode'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+There is no error code response for the abnormally case.
+Step 2 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_003业务服务接口－autoPayByOfflineMode 异常 业务员选择线下支付自动完成商户试用到支付 参数异常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        FAIL</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"5f073f52-1acc-4044-8857-cfbaa72ec1a8"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'reason': u'this is reason.', u'businessId': 100}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_autoPayByOfflineMode'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+There is no error code response for the abnormally case.
+Step 2 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_004业务服务接口－autoPayByOfflineMode 异常 业务员选择线下支付自动完成商户试用到支付 待审核状态</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        FAIL</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"ab3c03c7-8401-472d-9871-6520e8945c93"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'ab3c03c7-8401-472d-9871-6520e8945c93'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'ab3c03c7-8401-472d-9871-6520e8945c93', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765888', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"3e5e10ed-585d-482f-8b33-9485f37013fe"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'3e5e10ed-585d-482f-8b33-9485f37013fe', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'3e5e10ed-585d-482f-8b33-9485f37013fe', u'priceInfo': {u'discountPrice': 10000, u'advertisingDays': 30, u'prepayPrice': 7000, u'days': 90, u'advertising': 10, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 7 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/MerchantService
+The request parameter is: 
+{'params': {u'account': u'13798765888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'merchant_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 8 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/MerchantService
+The request parameter is: 
+{'params': {u'pluginId': u'xw:transfer', u'sessionId': u'8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'service_try'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 9 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/MerchantService
+The request parameter is: 
+{'params': {u'category': 0, u'sessionId': u'8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201', u'idMark': 0, u'pageNo': 0, u'pageSize': 10}, 'jsonrpc': '2.0', 'id': 100, 'method': u'message_getList'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":{"totalCount":0,"objects":[],"pageNo":0,"pageSize":10,"cursor":"0"}}
+
+----------------------------------------------------------------------------------------------------
+
+This is 10 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/MerchantService
+The request parameter is: 
+{'params': {u'content': {u'businessStatus': 1, u'industryId': 1101, u'shopName': u'TestShopName', u'districtId': 440308, u'area': 200, u'longitude': 10.2344, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'negotiable': 1, u'cost': 100000000, u'rent': 1000, u'address': u'testAddress', u'latitude': 10.1232, u'emptyTransfer': 1, u'type': 1, u'suitableIndustryIds': [1301, 1302]}, u'pluginId': u'xw:transfer', u'serviceId': 1, u'slogan': u'this is slogan', u'description': u'this is description', u'title': u'this is title.', u'sessionId': u'8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201', u'contact': u'contactTest'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'requirement_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 11 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/MerchantService
+The request parameter is: 
+{'params': {u'sessionId': u'8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201', u'requirementId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'requirement_post'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 12 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/MerchantService
+The request parameter is: 
+{'params': {u'bySalesman': 0, u'sessionId': u'8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201', u'serviceId': 1, u'condition': {u'mode': 1}}, 'jsonrpc': '2.0', 'id': 100, 'method': u'contract_create'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 13 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/PayService
+The request parameter is: 
+{'params': {u'payMode': 0, u'sessionId': u'8f1dab5a-08e0-4ad6-8cf0-fb5df3f79201', u'contractId': 1, u'subject': u'testMode'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'contract_pay'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":{"tradeNo":"9cd4db1c5ebc4130bef87e1d55c59e70"}}
+
+Checker for key: tradeNo is FAIL.
+Step d is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='failCase'><div class='testcase'>test_005业务服务接口－autoPayByOfflineMode 正常 业务员选择线下支付自动完成商户试用到支付</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        FAIL</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"f5bad204-e67e-4c00-b003-0a6d8299a2b4"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'f5bad204-e67e-4c00-b003-0a6d8299a2b4'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'f5bad204-e67e-4c00-b003-0a6d8299a2b4', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"f2290d3b-fe61-42ba-9694-8446137a4bb3"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'f2290d3b-fe61-42ba-9694-8446137a4bb3', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'f2290d3b-fe61-42ba-9694-8446137a4bb3', u'priceInfo': {u'discountPrice': 10000, u'advertisingDays': 30, u'prepayPrice': 7000, u'days': 90, u'advertising': 10, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 7 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'reason': u'this is reason.', u'sessionId': u'f2290d3b-fe61-42ba-9694-8446137a4bb3', u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_autoPayByOfflineMode'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+Expected null but actually return not null.
+Step 7 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='failCase'><div class='testcase'>test_006业务服务接口－bargain 异常 修改报价－转店按时间 advertising大于days 参数错误</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        FAIL</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"102ff297-6a12-4094-af0a-8ccd79743a34"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'102ff297-6a12-4094-af0a-8ccd79743a34'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'102ff297-6a12-4094-af0a-8ccd79743a34', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"0d7a3d0c-2f90-4e38-8cd8-65f41107c353"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'0d7a3d0c-2f90-4e38-8cd8-65f41107c353', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'0d7a3d0c-2f90-4e38-8cd8-65f41107c353', u'priceInfo': {u'discountPrice': 10000, u'advertisingDays': 120, u'prepayPrice': 7000, u'days': 90, u'advertising': 10, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+There is no error code response for the abnormally case.
+Step 6 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007业务服务接口－bargain 正常 修改报价－转店按时间</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        PASS</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"73dcb0ea-62f5-4ee9-b60e-c00da7022b35"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'73dcb0ea-62f5-4ee9-b60e-c00da7022b35'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'73dcb0ea-62f5-4ee9-b60e-c00da7022b35', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"2b535412-9fce-46f6-a9d8-90790895693f"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'2b535412-9fce-46f6-a9d8-90790895693f', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'2b535412-9fce-46f6-a9d8-90790895693f', u'priceInfo': {u'discountPrice': 10000, u'advertisingDays': 30, u'prepayPrice': 7000, u'days': 90, u'advertising': 10, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+Start to restore sql
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008业务服务接口－bargain 正常 修改报价－转店按时间不带advertisingDays</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        PASS</a>
+
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"f57d2f6f-7658-4aa0-b770-706fc616b2a6"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'f57d2f6f-7658-4aa0-b770-706fc616b2a6'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'f57d2f6f-7658-4aa0-b770-706fc616b2a6', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"7d44e47e-e5be-4a29-b8f1-71f3351808ca"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'7d44e47e-e5be-4a29-b8f1-71f3351808ca', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'7d44e47e-e5be-4a29-b8f1-71f3351808ca', u'priceInfo': {u'discountPrice': 10000, u'days': 90, u'advertising': 10, u'prepayPrice': 7000, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+Start to restore sql
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.9' class='none'>
+    <td class='failCase'><div class='testcase'>test_009业务服务接口－bargain 正常 修改报价－转店按时间非必填不带</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.9')" >
+        FAIL</a>
+
+    <div id='div_ft1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.9: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"f6c5806d-475a-400c-8f7a-54fa1916f06c"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'f6c5806d-475a-400c-8f7a-54fa1916f06c'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'f6c5806d-475a-400c-8f7a-54fa1916f06c', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"ec8f71d8-fa52-4fa3-a64c-5bb78ffb5316"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'ec8f71d8-fa52-4fa3-a64c-5bb78ffb5316', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'ec8f71d8-fa52-4fa3-a64c-5bb78ffb5316', u'priceInfo': {u'discountPrice': 10000, u'days': 90, u'prepayPrice': 7000, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32602,"message":"参数错误:参数advertising不能为空","data":[{"methodName":"checkMapIsContainer","fileName":"Utils.java","lineNumber":772,"className":"com.xw.common.utils.Utils","nativeMethod":false},{"methodName":"checkValidation","fileName":"TransferQuoteContent.java","lineNumber":104,"className":"com.xw.plugins.transfer.quote.TransferQuoteContent","nativeMethod":false},{"methodName":"bargain","fileName":"BusinessServiceImpl.java","lineNumber":318,"className":"com.xw.api.jsonrpc.client.business.impl.BusinessServiceImpl","nativeMethod":false},{"methodName":"invoke","fileName":null,"lineNumber":-1,"className":"sun.reflect.GeneratedMethodAccessor51","nativeMethod":false},{"methodName":"invoke","fileName":"DelegatingMethodAccessorImpl.java","lineNumber":43,"className":"sun.reflect.DelegatingMethodAccessorImpl","nativeMethod":false},{"methodName":"invoke","fileName":"Method.java","lineNumber":497,"className":"java.lang.reflect.Method","nativeMethod":false},{"methodName":"invoke","fileName":"JsonRpcBasicServer.java","lineNumber":465,"className":"com.yzmy.jsonrpc4j.JsonRpcBasicServer","nativeMethod":false},{"methodName":"handleObject","fileName":"JsonRpcBasicServer.java","lineNumber":337,"className":"com.yzmy.jsonrpc4j.JsonRpcBasicServer","nativeMethod":false},{"methodName":"handleNode","fileName":"JsonRpcBasicServer.java","lineNumber":239,"className":"com.yzmy.jsonrpc4j.JsonRpcBasicServer","nativeMethod":false},{"methodName":"handle","fileName":"JsonRpcBasicServer.java","lineNumber":177,"className":"com.yzmy.jsonrpc4j.JsonRpcBasicServer","nativeMethod":false},{"methodName":"handle","fileName":"PatchedJsonRpcMultiServer.java","lineNumber":65,"className":"com.xw.api.jsonrpc.base.PatchedJsonRpcMultiServer","nativeMethod":false},{"methodName":"handle","fileName":"XwJsonRpcMultiServer.java","lineNumber":60,"className":"com.xw.api.jsonrpc.base.XwJsonRpcMultiServer","nativeMethod":false},{"methodName":"service","fileName":"BaseServlet.java","lineNumber":23,"className":"com.xw.api.jsonrpc.base.BaseServlet","nativeMethod":false},{"methodName":"service","fileName":"HttpServlet.java","lineNumber":729,"className":"javax.servlet.http.HttpServlet","nativeMethod":false},{"methodName":"internalDoFilter","fileName":"ApplicationFilterChain.java","lineNumber":291,"className":"org.apache.catalina.core.ApplicationFilterChain","nativeMethod":false},{"methodName":"doFilter","fileName":"ApplicationFilterChain.java","lineNumber":206,"className":"org.apache.catalina.core.ApplicationFilterChain","nativeMethod":false},{"methodName":"doFilter","fileName":"WsFilter.java","lineNumber":52,"className":"org.apache.tomcat.websocket.server.WsFilter","nativeMethod":false},{"methodName":"internalDoFilter","fileName":"ApplicationFilterChain.java","lineNumber":239,"className":"org.apache.catalina.core.ApplicationFilterChain","nativeMethod":false},{"methodName":"doFilter","fileName":"ApplicationFilterChain.java","lineNumber":206,"className":"org.apache.catalina.core.ApplicationFilterChain","nativeMethod":false},{"methodName":"doFilter","fileName":"CorsFilter.java","lineNumber":24,"className":"com.xw.filters.CorsFilter","nativeMethod":false},{"methodName":"internalDoFilter","fileName":"ApplicationFilterChain.java","lineNumber":239,"className":"org.apache.catalina.core.ApplicationFilterChain","nativeMethod":false},{"methodName":"doFilter","fileName":"ApplicationFilterChain.java","lineNumber":206,"className":"org.apache.catalina.core.ApplicationFilterChain","nativeMethod":false},{"methodName":"invoke","fileName":"StandardWrapperValve.java","lineNumber":212,"className":"org.apache.catalina.core.StandardWrapperValve","nativeMethod":false},{"methodName":"invoke","fileName":"StandardContextValve.java","lineNumber":106,"className":"org.apache.catalina.core.StandardContextValve","nativeMethod":false},{"methodName":"invoke","fileName":"AuthenticatorBase.java","lineNumber":502,"className":"org.apache.catalina.authenticator.AuthenticatorBase","nativeMethod":false},{"methodName":"invoke","fileName":"StandardHostValve.java","lineNumber":141,"className":"org.apache.catalina.core.StandardHostValve","nativeMethod":false},{"methodName":"invoke","fileName":"ErrorReportValve.java","lineNumber":79,"className":"org.apache.catalina.valves.ErrorReportValve","nativeMethod":false},{"methodName":"invoke","fileName":"AbstractAccessLogValve.java","lineNumber":616,"className":"org.apache.catalina.valves.AbstractAccessLogValve","nativeMethod":false},{"methodName":"invoke","fileName":"StandardEngineValve.java","lineNumber":88,"className":"org.apache.catalina.core.StandardEngineValve","nativeMethod":false},{"methodName":"service","fileName":"CoyoteAdapter.java","lineNumber":521,"className":"org.apache.catalina.connector.CoyoteAdapter","nativeMethod":false},{"methodName":"process","fileName":"AbstractHttp11Processor.java","lineNumber":1096,"className":"org.apache.coyote.http11.AbstractHttp11Processor","nativeMethod":false},{"methodName":"process","fileName":"AbstractProtocol.java","lineNumber":674,"className":"org.apache.coyote.AbstractProtocol$AbstractConnectionHandler","nativeMethod":false},{"methodName":"doRun","fileName":"NioEndpoint.java","lineNumber":1500,"className":"org.apache.tomcat.util.net.NioEndpoint$SocketProcessor","nativeMethod":false},{"methodName":"run","fileName":"NioEndpoint.java","lineNumber":1456,"className":"org.apache.tomcat.util.net.NioEndpoint$SocketProcessor","nativeMethod":false},{"methodName":"runWorker","fileName":"ThreadPoolExecutor.java","lineNumber":1142,"className":"java.util.concurrent.ThreadPoolExecutor","nativeMethod":false},{"methodName":"run","fileName":"ThreadPoolExecutor.java","lineNumber":617,"className":"java.util.concurrent.ThreadPoolExecutor$Worker","nativeMethod":false},{"methodName":"run","fileName":"TaskThread.java","lineNumber":61,"className":"org.apache.tomcat.util.threads.TaskThread$WrappingRunnable","nativeMethod":false},{"methodName":"run","fileName":"Thread.java","lineNumber":745,"className":"java.lang.Thread","nativeMethod":false}]}}
+
+Expected null but actually return not null.
+Step 6 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.10' class='none'>
+    <td class='failCase'><div class='testcase'>test_010业务服务接口－get 正常 获取业务详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.10')" >
+        FAIL</a>
+
+    <div id='div_ft1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.10: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"661a2a0d-70c3-4647-81e3-7b6af3404917"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'661a2a0d-70c3-4647-81e3-7b6af3404917'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'661a2a0d-70c3-4647-81e3-7b6af3404917', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"a47a3dd8-dd8f-4fce-a6be-22e8e9da67ab"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'a47a3dd8-dd8f-4fce-a6be-22e8e9da67ab', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'a47a3dd8-dd8f-4fce-a6be-22e8e9da67ab', u'priceInfo': {u'discountPrice': 10000, u'advertisingDays': 30, u'prepayPrice': 7000, u'days': 90, u'advertising': 10, u'mode': 2}, u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_bargain'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 7 step running: 
+----------------------------------------------------------------------------------------------------
+SELECT id FROM USER WHERE MOBILE = '13664321999'
+((2,),)
+SQL : Execute SQL PASS.
+----------------------------------------------------------------------------------------------------
+
+This is 8 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'a47a3dd8-dd8f-4fce-a6be-22e8e9da67ab', u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_get'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":{"id":1,"title":"转店:西乡食堂","pluginId":"xw:transfer","opportunityId":1,"overdueNum":0,"receiveTime":1467093890000,"overdueTime":1468821890000,"closeTime":1467093890000,"status":1,"reason":"","salesmanId":2,"serviceId":0,"shopId":0,"lastCommentTime":1467093890000,"isMerchantPost":false,"priceInfo":{"mode":2,"prepay":70,"transferFee":null,"discountPrice":10000,"days":90,"advertising":10,"prepayPrice":7000}}}
+
+u'advertisingDays'
+Step 8 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.11' class='none'>
+    <td class='failCase'><div class='testcase'>test_011业务服务接口－sendMessageToPersuade 异常 业务员发送短信去说服商家注册APP Session过期</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        FAIL</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"8e6f7fa0-a178-4656-9b65-46de13deecf2"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'8e6f7fa0-a178-4656-9b65-46de13deecf2'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_logout'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'8e6f7fa0-a178-4656-9b65-46de13deecf2', u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_sendMessageToPersuade'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+Response the error code but actually need the result without error.
+Step 3 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.12' class='none'>
+    <td class='failCase'><div class='testcase'>test_012业务服务接口－sendMessageToPersuade 异常 业务员发送短信去说服商家注册APP  业务不存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.12')" >
+        FAIL</a>
+
+    <div id='div_ft1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.12: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"65bd2d43-0481-4b8a-bdf5-043f28d3c8ab"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'', u'businessId': 200}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_sendMessageToPersuade'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+Response the error code but actually need the result without error.
+Step 2 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.13' class='none'>
+    <td class='failCase'><div class='testcase'>test_013业务服务接口－sendMessageToPersuade 异常 业务员发送短信去说服商家注册APP 参数错误</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.13')" >
+        FAIL</a>
+
+    <div id='div_ft1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.13: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"2cebc77f-aaa7-435b-b21b-a8ab7464fbba"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'15012345678', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'2cebc77f-aaa7-435b-b21b-a8ab7464fbba'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'2cebc77f-aaa7-435b-b21b-a8ab7464fbba', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'15012345678', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"bbdb7929-2b98-466d-8678-6857b4ed6813"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'bbdb7929-2b98-466d-8678-6857b4ed6813', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_sendMessageToPersuade'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+Expected null but actually return not null.
+Step 6 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.14' class='none'>
+    <td class='failCase'><div class='testcase'>test_014业务服务接口－sendMessageToPersuade 正常 业务员发送短信去说服商家注册APP</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.14')" >
+        FAIL</a>
+
+    <div id='div_ft1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.14: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"b860ea4e-39ce-454a-a439-c27a079d524b"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'15012345678', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'b860ea4e-39ce-454a-a439-c27a079d524b'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'b860ea4e-39ce-454a-a439-c27a079d524b', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'15012345678', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"ba52fd7e-c177-4f7a-82bb-95727df83e0d"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'ba52fd7e-c177-4f7a-82bb-95727df83e0d', u'opportunityId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_take'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'ba52fd7e-c177-4f7a-82bb-95727df83e0d', u'businessId': 1}, 'jsonrpc': '2.0', 'id': 100, 'method': u'business_sendMessageToPersuade'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"error":{"code":-32601,"message":"Method not found"}}
+
+Expected null but actually return not null.
+Step 6 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.15' class='none'>
+    <td class='errorCase'><div class='testcase'>test_015举报服务接口－add 异常 商机举报 Session过期</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.15')" >
+        ERROR</a>
+
+    <div id='div_ft1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.15: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"298a9b9f-32e9-4af4-a095-26cf14fcb012"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'298a9b9f-32e9-4af4-a095-26cf14fcb012'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'298a9b9f-32e9-4af4-a095-26cf14fcb012', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"e620bab2-7b6e-4afe-bf0d-a63b7ed6b4c7"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'e620bab2-7b6e-4afe-bf0d-a63b7ed6b4c7'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_logout'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 6 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'reason': u'test', u'type': 1, u'sessionId': u'e620bab2-7b6e-4afe-bf0d-a63b7ed6b4c7', u'targetId': 1, u'description': u'this is description.'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'accuse_add'}
+This is the response from the request:
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Apache Tomcat/8.0.30 - Error report&lt;/title&gt;&lt;style type="text/css"&gt;H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}.line {height: 1px; background-color: #525D76; border: none;}&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 500 - Service 'accuse' does not exist&lt;/h1&gt;&lt;div class="line"&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Exception report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt; &lt;u&gt;Service 'accuse' does not exist&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt; &lt;u&gt;The server encountered an internal error that prevented it from fulfilling this request.&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;exception&lt;/b&gt;&lt;/p&gt;&lt;pre&gt;java.lang.RuntimeException: Service 'accuse' does not exist
+	com.yzmy.jsonrpc4j.JsonRpcMultiServer.getHandler(JsonRpcMultiServer.java:134)
+	com.yzmy.jsonrpc4j.JsonRpcMultiServer.getHandlerInterfaces(JsonRpcMultiServer.java:115)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:312)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handleNode(JsonRpcBasicServer.java:239)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handle(JsonRpcBasicServer.java:177)
+	com.xw.api.jsonrpc.base.PatchedJsonRpcMultiServer.handle(PatchedJsonRpcMultiServer.java:65)
+	com.xw.api.jsonrpc.base.XwJsonRpcMultiServer.handle(XwJsonRpcMultiServer.java:60)
+	com.xw.api.jsonrpc.base.BaseServlet.service(BaseServlet.java:23)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	com.xw.filters.CorsFilter.doFilter(CorsFilter.java:24)
+&lt;/pre&gt;&lt;p&gt;&lt;b&gt;note&lt;/b&gt; &lt;u&gt;The full stack trace of the root cause is available in the Apache Tomcat/8.0.30 logs.&lt;/u&gt;&lt;/p&gt;&lt;hr class="line"&gt;&lt;h3&gt;Apache Tomcat/8.0.30&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 394, in check_case
+    if check_resp(con, cases[x]):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 329, in check_resp
+    ret = APIReq(val["input"])
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 266, in APIReq
+    return resp.json()["error"]["code"]
+  File "/Library/Python/2.7/site-packages/requests/models.py", line 812, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/Library/Python/2.7/site-packages/simplejson/__init__.py", line 501, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Python/2.7/site-packages/simplejson/decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "/Library/Python/2.7/site-packages/simplejson/decoder.py", line 389, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.16' class='none'>
+    <td class='errorCase'><div class='testcase'>test_016举报服务接口－add 异常 商机举报 参数错误</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.16')" >
+        ERROR</a>
+
+    <div id='div_ft1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.16: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"03273624-7fb8-47a1-b2bd-55dd2c2047fe"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'03273624-7fb8-47a1-b2bd-55dd2c2047fe'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'03273624-7fb8-47a1-b2bd-55dd2c2047fe', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"3c3d8557-beac-4bfd-b478-0c6c0bb274da"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'type': 1, u'reason': u'test', u'targetId': 1, u'description': u'this is description.'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'accuse_add'}
+This is the response from the request:
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Apache Tomcat/8.0.30 - Error report&lt;/title&gt;&lt;style type="text/css"&gt;H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}.line {height: 1px; background-color: #525D76; border: none;}&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 500 - Service 'accuse' does not exist&lt;/h1&gt;&lt;div class="line"&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Exception report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt; &lt;u&gt;Service 'accuse' does not exist&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt; &lt;u&gt;The server encountered an internal error that prevented it from fulfilling this request.&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;exception&lt;/b&gt;&lt;/p&gt;&lt;pre&gt;java.lang.RuntimeException: Service 'accuse' does not exist
+	com.yzmy.jsonrpc4j.JsonRpcMultiServer.getHandler(JsonRpcMultiServer.java:134)
+	com.yzmy.jsonrpc4j.JsonRpcMultiServer.getHandlerInterfaces(JsonRpcMultiServer.java:115)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:312)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handleNode(JsonRpcBasicServer.java:239)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handle(JsonRpcBasicServer.java:177)
+	com.xw.api.jsonrpc.base.PatchedJsonRpcMultiServer.handle(PatchedJsonRpcMultiServer.java:65)
+	com.xw.api.jsonrpc.base.XwJsonRpcMultiServer.handle(XwJsonRpcMultiServer.java:60)
+	com.xw.api.jsonrpc.base.BaseServlet.service(BaseServlet.java:23)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	com.xw.filters.CorsFilter.doFilter(CorsFilter.java:24)
+&lt;/pre&gt;&lt;p&gt;&lt;b&gt;note&lt;/b&gt; &lt;u&gt;The full stack trace of the root cause is available in the Apache Tomcat/8.0.30 logs.&lt;/u&gt;&lt;/p&gt;&lt;hr class="line"&gt;&lt;h3&gt;Apache Tomcat/8.0.30&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 394, in check_case
+    if check_resp(con, cases[x]):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 329, in check_resp
+    ret = APIReq(val["input"])
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 266, in APIReq
+    return resp.json()["error"]["code"]
+  File "/Library/Python/2.7/site-packages/requests/models.py", line 812, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/Library/Python/2.7/site-packages/simplejson/__init__.py", line 501, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Python/2.7/site-packages/simplejson/decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "/Library/Python/2.7/site-packages/simplejson/decoder.py", line 389, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.17' class='none'>
+    <td class='errorCase'><div class='testcase'>test_017举报服务接口－add 正常 商机举报</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.17')" >
+        ERROR</a>
+
+    <div id='div_ft1.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.17: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"088d7895-942c-4e34-8dda-1751e9d355b5"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765123', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'088d7895-942c-4e34-8dda-1751e9d355b5'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'088d7895-942c-4e34-8dda-1751e9d355b5', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'13798765123', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13664321999', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"05a36a13-a6b9-497d-9b6a-faea04868011"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 5 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'reason': u'test', u'type': 1, u'sessionId': u'05a36a13-a6b9-497d-9b6a-faea04868011', u'targetId': 1, u'description': u'this is description.'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'accuse_add'}
+This is the response from the request:
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Apache Tomcat/8.0.30 - Error report&lt;/title&gt;&lt;style type="text/css"&gt;H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}.line {height: 1px; background-color: #525D76; border: none;}&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 500 - Service 'accuse' does not exist&lt;/h1&gt;&lt;div class="line"&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Exception report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt; &lt;u&gt;Service 'accuse' does not exist&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt; &lt;u&gt;The server encountered an internal error that prevented it from fulfilling this request.&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;exception&lt;/b&gt;&lt;/p&gt;&lt;pre&gt;java.lang.RuntimeException: Service 'accuse' does not exist
+	com.yzmy.jsonrpc4j.JsonRpcMultiServer.getHandler(JsonRpcMultiServer.java:134)
+	com.yzmy.jsonrpc4j.JsonRpcMultiServer.getHandlerInterfaces(JsonRpcMultiServer.java:115)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handleObject(JsonRpcBasicServer.java:312)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handleNode(JsonRpcBasicServer.java:239)
+	com.yzmy.jsonrpc4j.JsonRpcBasicServer.handle(JsonRpcBasicServer.java:177)
+	com.xw.api.jsonrpc.base.PatchedJsonRpcMultiServer.handle(PatchedJsonRpcMultiServer.java:65)
+	com.xw.api.jsonrpc.base.XwJsonRpcMultiServer.handle(XwJsonRpcMultiServer.java:60)
+	com.xw.api.jsonrpc.base.BaseServlet.service(BaseServlet.java:23)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	com.xw.filters.CorsFilter.doFilter(CorsFilter.java:24)
+&lt;/pre&gt;&lt;p&gt;&lt;b&gt;note&lt;/b&gt; &lt;u&gt;The full stack trace of the root cause is available in the Apache Tomcat/8.0.30 logs.&lt;/u&gt;&lt;/p&gt;&lt;hr class="line"&gt;&lt;h3&gt;Apache Tomcat/8.0.30&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 394, in check_case
+    if check_resp(con, cases[x]):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 329, in check_resp
+    ret = APIReq(val["input"])
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 266, in APIReq
+    return resp.json()["error"]["code"]
+  File "/Library/Python/2.7/site-packages/requests/models.py", line 812, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/Library/Python/2.7/site-packages/simplejson/__init__.py", line 501, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Python/2.7/site-packages/simplejson/decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "/Library/Python/2.7/site-packages/simplejson/decoder.py", line 389, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.18' class='none'>
+    <td class='failCase'><div class='testcase'>test_018商机服务接口－getInfo 正常 获取商机详情 已注册</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.18')" >
+        FAIL</a>
+
+    <div id='div_ft1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.18: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"a6ec099a-2382-41b5-9095-1593ea6baf59"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'13798765888', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'a6ec099a-2382-41b5-9095-1593ea6baf59'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'a6ec099a-2382-41b5-9095-1593ea6baf59', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'15012345678', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'a6ec099a-2382-41b5-9095-1593ea6baf59', u'opportunityId': u'1'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_getInfo'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":{"opportunityId":1,"pluginId":"xw:transfer","contact":"contactTest","mobile":"15012345678","merchantId":0,"title":"转店:西乡食堂","description":"This is description.","isNew":1,"status":0,"content":{"area":300,"fitIndustry":"餐馆 食堂 面包店 冷饮甜品店 ","address":"TestAddress","latitude":10.2345,"shopName":"Shop For add","businessStatus":1,"type":1,"rent":6000000,"negotiable":1,"photos":[{"id":34,"url":"http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg"}],"emptyTransfer":64,"industryId":1102,"districtId":44030601,"transferFee":1000000,"suitableIndustryIds":[1101,1102,1103,1104],"slogan":"This is slogan.","longitude":10.1234},"createTime":1467093904000,"salesNickname":null,"serviceId":0,"isMerchantPost":false,"cityId":4403,"validity":0,"lastRecordTime":1467093905000}}
+
+Checker for key: title is FAIL.
+Step 4 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.19' class='none'>
+    <td class='failCase'><div class='testcase'>test_019商机服务接口－getInfo 正常 获取商机详情 未注册</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.19')" >
+        FAIL</a>
+
+    <div id='div_ft1.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.19: Start to backup
+This is 1 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'account': u'13554321888', u'password': u'123456'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'user_login'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":"95757ffb-21f7-4114-8102-2a25e2c95758"}
+
+----------------------------------------------------------------------------------------------------
+
+This is 2 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'mobile': u'15012345678', u'pluginId': u'xw:transfer', u'contact': u'contactTest', u'sessionId': u'95757ffb-21f7-4114-8102-2a25e2c95758'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_lock'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":null}
+
+----------------------------------------------------------------------------------------------------
+
+This is 3 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'95757ffb-21f7-4114-8102-2a25e2c95758', u'contact': u'contactTest', u'values': {u'suitableIndustryIds': [1101, 1102, 1103, 1104], u'businessStatus': 1, u'industryId': 1102, u'slogan': u'This is slogan.', u'shopName': u'Shop For add', u'districtId': 44030601, u'area': 300, u'longitude': 10.1234, u'transferFee': 1000000, u'photos': [{u'url': u'http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg', u'id': 34}], u'rent': 6000000, u'address': u'TestAddress', u'latitude': 10.2345, u'emptyTransfer': 1000000, u'type': 1, u'negotiable': 1}, u'description': u'This is description.', u'mobile': u'15012345678', u'pluginId': u'xw:transfer'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_add'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":1}
+
+----------------------------------------------------------------------------------------------------
+
+This is 4 step running: 
+----------------------------------------------------------------------------------------------------
+Request url:
+http://localhost:8080/xw3/ClientService
+The request parameter is: 
+{'params': {u'sessionId': u'95757ffb-21f7-4114-8102-2a25e2c95758', u'opportunityId': u'1'}, 'jsonrpc': '2.0', 'id': 100, 'method': u'opportunity_getInfo'}
+This is the response from the request:
+{"jsonrpc":"2.0","id":100,"result":{"opportunityId":1,"pluginId":"xw:transfer","contact":"contactTest","mobile":"15012345678","merchantId":0,"title":"转店:西乡食堂","description":"This is description.","isNew":1,"status":0,"content":{"area":300,"fitIndustry":"餐馆 食堂 面包店 冷饮甜品店 ","address":"TestAddress","latitude":10.2345,"shopName":"Shop For add","businessStatus":1,"type":1,"rent":6000000,"negotiable":1,"photos":[{"id":34,"url":"http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg"}],"emptyTransfer":64,"industryId":1102,"districtId":44030601,"transferFee":1000000,"suitableIndustryIds":[1101,1102,1103,1104],"slogan":"This is slogan.","longitude":10.1234},"createTime":1467093906000,"salesNickname":null,"serviceId":0,"isMerchantPost":false,"cityId":4403,"validity":0,"lastRecordTime":1467093907000}}
+
+Checker for key: title is FAIL.
+Step 4 is FAIL.
+Traceback (most recent call last):
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 423, in func
+    self.run_case(steps)
+  File "/Users/zhengandy/Documents/workspace/RequestsProject/API.py", line 418, in run_case
+    self.assertTrue(check_case(context, steps), "TEST FAIL")
+AssertionError: TEST FAIL
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>19</td>
+    <td>2</td>
+    <td>14</td>
+    <td>3</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

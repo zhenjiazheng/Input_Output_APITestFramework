@@ -1,0 +1,5 @@
+{
+    "input":{"clientType":"MerchantService","method":"service_try","sessionId":"{{key["sessionId"]}}","pluginId":"xw:transfer"},
+    "output":{"TYPE":"int"},
+    "key":["serviceId"]
+}

@@ -1,0 +1,5 @@
+{
+    "input":{"clientType":"ClientService","method":"user_getProfile","sessionId":"ashdashdsadsadsadsdsad"},
+    "output":{"TYPE":"int"},
+    "key":["resourceId"]
+}

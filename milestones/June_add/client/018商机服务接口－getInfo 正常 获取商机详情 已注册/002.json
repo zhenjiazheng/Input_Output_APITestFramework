@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"ClientService","method":"opportunity_lock","sessionId":"{{key["sessionId"]}}","mobile":"{{pre.MUser1}}","contact":"contactTest","pluginId":"xw:transfer"},
+    "output":null
+}

@@ -1,0 +1,4 @@
+{
+    "input":{ "clientType":"ClientService","method":"business_bargain","sessionId":"{{key["sessionId2"]}}","businessId":{{key["businessId"]}},"priceInfo":{"discountPrice":10000,"prepayPrice":7000,"mode":2,"days":90} },
+    "output":null
+}

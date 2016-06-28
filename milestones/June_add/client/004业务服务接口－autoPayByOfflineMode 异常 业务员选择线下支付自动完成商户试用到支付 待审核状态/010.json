@@ -1,0 +1,6 @@
+{
+    "input":{"clientType":"MerchantService","method":"requirement_add","sessionId":"{{key["sessionId3"]}}","slogan":"this is slogan","description":"this is description","title":"this is title.", "pluginId": "xw:transfer", "contact": "contactTest","serviceId":{{key["serviceId"]}},"content": {"suitableIndustryIds": [1301, 1302], "businessStatus": 1, "industryId": 1101, "shopName": "TestShopName", "area": 200, "districtId": 440308, "longitude": 10.2344, "photos": [{"url": "http://localhost:8080/xw3/image/file_fbff748a-86bb-4728-a0a0-c9f5c59e023d.jpg", "id": 34}], "cost": 100000000, "rent": 1000, "address": "testAddress", "latitude": 10.1232, "emptyTransfer": 1, "type": 1, "negotiable": 1}},
+    "output":{"TYPE":"int"},
+    "key":["requirementId"]
+}
+

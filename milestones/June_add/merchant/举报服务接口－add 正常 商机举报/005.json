@@ -1,0 +1,5 @@
+{
+    "input":{ "clientType":"MerchantService","method":"accuse_add","sessionId":"{{key["sessionId2"]}}","type":1,"targetId":{{key["opportunityId"]}},"reason":"test","description":"this is description." },
+    "output":{"TYPE":"int"},
+    "key":["accussId"]
+}

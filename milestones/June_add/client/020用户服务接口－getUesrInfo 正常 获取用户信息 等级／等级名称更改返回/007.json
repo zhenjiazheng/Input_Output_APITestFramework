@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"ClientService","method":"user_getUserInfo","sessionId":"{{key["sessionId"]}}","userId":{{key["userId"]}}},
+    "output":{"id":{"TYPE":"int","EQ":{{key["userId"]}}},"mobile":{"EQ":"{{pre.User2}}"},"nickname":{"EQ":"{{key["nickname"]}}"},"userAvatarUrl":{"EQ":""},"point":{"EQ":5500},"level":{"EQ":33},"certificates":{"TYPE":"list"},"medals":{"TYPE":"dict"},"levelName":{"EQ":"大臣"} }
+}

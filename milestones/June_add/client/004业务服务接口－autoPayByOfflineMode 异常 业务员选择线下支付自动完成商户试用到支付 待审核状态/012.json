@@ -1,0 +1,5 @@
+{
+    "input":{"clientType":"MerchantService","method":"contract_create","sessionId":"{{key["sessionId3"]}}","serviceId":{{key["serviceId"]}},"bySalesman":0,"condition":{"mode":1}},
+    "output":{"TYPE":"int"},
+    "key":["contractId"]
+}

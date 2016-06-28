@@ -1,0 +1,4 @@
+{
+    "sql":"SELECT id,promo_code FROM USER WHERE MOBILE = '{{pre.User1}}'",
+    "key":["user_id","promo_code"]
+}

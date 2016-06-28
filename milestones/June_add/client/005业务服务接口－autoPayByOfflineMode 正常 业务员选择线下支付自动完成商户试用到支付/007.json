@@ -1,0 +1,4 @@
+{
+    "input":{ "clientType":"ClientService","method":"business_autoPayByOfflineMode","sessionId":"{{key["sessionId2"]}}","businessId":{{key["businessId"]}},"reason":"this is reason." },
+    "output":null
+}

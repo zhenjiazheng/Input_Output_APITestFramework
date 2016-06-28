@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"MerchantService","method":"message_getList","sessionId":"{{key["sessionId3"]}}","idMark":0,"category":0,"pageNo":0,"pageSize":10},
+    "output":{"totalCount":{"TYPE":"int"},"objects":{"TYPE":"list"}}
+}

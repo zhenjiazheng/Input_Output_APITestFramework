@@ -1,0 +1,5 @@
+{
+    "input":{"clientType":"ClientService","method":"user_getProfile","sessionId":"{{key["sessionId"]}}"},
+    "output":{"resourceId":{"EQ":13,"TYPE":"int"}},
+    "key":["resourceId"]
+}

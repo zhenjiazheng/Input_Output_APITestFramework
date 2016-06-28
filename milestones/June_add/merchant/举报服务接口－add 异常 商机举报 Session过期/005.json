@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"MerchantService","method":"merchant_logout","sessionId":"{{key["sessionId2"]}}"},
+    "output":null
+}

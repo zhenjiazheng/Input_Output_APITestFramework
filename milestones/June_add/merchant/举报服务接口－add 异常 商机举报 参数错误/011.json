@@ -1,0 +1,4 @@
+{
+    "input":{ "clientType":"MerchantService","method":"accuse_add","sessionId":"{{key["sessionId2"]}}","type":1,"targetId":{{key["opportunityId"]}},"reason":"test" },
+    "output":{"code":-32602}
+}

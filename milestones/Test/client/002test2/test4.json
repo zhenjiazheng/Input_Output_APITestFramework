@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"ClientService","method":"user_getProfile","sessionId":"ashdashdsadsadsadsdsad"},
+    "output":{"code":-31993}
+}

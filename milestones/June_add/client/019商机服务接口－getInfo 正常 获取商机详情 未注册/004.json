@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"ClientService","method":"opportunity_getInfo","sessionId":"{{key["sessionId"]}}","opportunityId":"{{key["opportunityId"]}}"},
+    "output":{"opportunityId":{"EQ":{{key["opportunityId"]}}},"contact":{"EQ":"contactTest"},"mobile":{"EQ":"15012345678"},"title":{"TYPE":"str"},"pluginId":{"EQ":"xw:transfer"},"merchantId":{"EQ":0},"status":{"EQ":0},"serviceId":{"EQ":0},"shopId":{"TYPE":"int"},"lastRecordTime":{"TYPEIN":["long","int"]},"isMerchantPost":{"EQ":false},"createTime":{"TYPEIN":["int","long"],"GE":100000000} ,"content":{"TYPE":"dict"},"cityId":{"TYPE":"int"},"validity":{"EQ":0}}
+}

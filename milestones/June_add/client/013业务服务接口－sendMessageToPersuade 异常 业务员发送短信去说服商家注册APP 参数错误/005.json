@@ -1,0 +1,5 @@
+{
+    "input":{ "clientType":"ClientService","method":"business_take","sessionId":"{{key["sessionId2"]}}","opportunityId":{{key["opportunityId"]}} },
+    "output":{"TYPE":"int"},
+    "key":["businessId"]
+}

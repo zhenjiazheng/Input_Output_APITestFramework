@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"ClientService","method":"user_logout","sessionId":"{{key["sessionId"]}}"},
+    "output":null
+}

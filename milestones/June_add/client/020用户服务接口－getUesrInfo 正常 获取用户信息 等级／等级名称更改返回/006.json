@@ -1,0 +1,3 @@
+{
+    "sql":"UPDATE USER SET point=550000 WHERE MOBILE = '{{pre.User2}}'"
+}

@@ -1,0 +1,4 @@
+{
+    "input":{ "clientType":"ClientService","method":"business_get","sessionId":"{{key["sessionId2"]}}","businessId":{{key["businessId"]}} },
+    "output":{"id":{"EQ":{{key["businessId"]}}},"title":{"TYPE":"str"},"pluginId":{"EQ":"xw:transfer"},"opportunityId":{"EQ":{{key["opportunityId"]}}},"overdueNum":{"EQ":0},"receiveTime":{"TYPEIN":["long","int"]},"overdueTime":{"TYPEIN":["long","int"]},"closeTime":{"TYPEIN":["long","int"]},"status":{"EQ":1},"reason":{"TYPE":"str"},"salesmanId":{"EQ":{{key["userId"]}}},"serviceId":{"EQ":0},"shopId":{"TYPE":"int"},"lastCommentTime":{"TYPEIN":["long","int"]},"isMerchantPost":{"EQ":false},"lastBargainTime":{"TYPEIN":["int","long"],"GE":100000000} ,"priceInfo":{"TYPE":"dict"},"discountPrice":{"EQ":10000},"prepayPrice":{"EQ":7000},"mode":{"EQ":2},"days":{"EQ":90},"advertising":{"EQ":10},"advertisingDays":{"EQ":30}}
+}

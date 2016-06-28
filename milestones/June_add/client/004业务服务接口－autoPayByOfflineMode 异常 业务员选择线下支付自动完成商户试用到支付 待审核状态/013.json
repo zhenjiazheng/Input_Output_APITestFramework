@@ -1,0 +1,5 @@
+{
+    "input":{"clientType":"PayService","method":"contract_pay","sessionId":"{{key["sessionId3"]}}","contractId":{{key["contractId"]}},"payMode":0,"subject":"testMode"},
+    "output":{"tradeNo":{"RE":"TD[0-9]*"}},
+    "key":["tradeNo"]
+}

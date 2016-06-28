@@ -1,0 +1,4 @@
+{
+    "sql":"SELECT id FROM OPPORTUNITY WHERE mobile = '{{pre.MUser1}}' and plugin_id = 'xw:transfer'",
+    "key":["opportunityId"]
+}

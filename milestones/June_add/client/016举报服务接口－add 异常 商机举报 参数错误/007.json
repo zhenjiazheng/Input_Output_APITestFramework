@@ -1,0 +1,4 @@
+{
+    "input":{ "clientType":"ClientService","method":"accuse_add","sessionId":"{{key["sessionId2"]}}","type":"test","targetId":{{key["opportunityId"]}},"reason":"test","description":"this is description." },
+    "output":{"code":-32602}
+}

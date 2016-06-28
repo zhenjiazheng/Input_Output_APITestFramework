@@ -1,0 +1,4 @@
+{
+    "input":{ "clientType":"ClientService","method":"business_sendMessageToPersuade","sessionId":"{{key["sessionId2"]}}","businessId":200},
+    "output":{"error":-30999}
+}

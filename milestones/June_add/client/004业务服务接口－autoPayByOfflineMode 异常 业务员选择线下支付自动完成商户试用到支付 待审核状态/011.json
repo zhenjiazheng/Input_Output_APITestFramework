@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"MerchantService","method":"requirement_post","sessionId":"{{key["sessionId3"]}}","requirementId":{{key["requirementId"]}}},
+    "output":null
+}

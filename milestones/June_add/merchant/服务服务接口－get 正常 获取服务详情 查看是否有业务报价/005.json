@@ -1,0 +1,4 @@
+{
+    "sql":"SELECT id FROM SHOP WHERE owner_id = (SELECT id FROM USER where MOBILE = '{{pre.MUser1}}')",
+    "key":["shopId"]
+}

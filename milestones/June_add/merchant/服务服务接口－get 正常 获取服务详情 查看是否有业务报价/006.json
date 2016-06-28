@@ -1,0 +1,4 @@
+{
+    "input":{"clientType":"MerchantService","method":"service_get","sessionId":"{{key["sessionId"]}}","id":{{key["serviceId"]}}},
+    "output":{"id":{"EQ":"{{key["serviceId"]}}"},"shopId":{"EQ":"{{key["shopId"}}"},"pluginId":{"EQ":"xw:transfer"},"businessId":{"EQ":0},"starAt":{"TYPEIN":["long","int"],"GE":10000000},"endAt":{"TYPEIN":["long","int"],"GE":10000000},"status":{"EQ":0},"createAt":{"TYPEIN":["long","int"],"GE":10000000},"opinion":{"EQ":-1},"remark":{"TYPE":"str"},"serviceStatus":{"EQ":-1},"cssId":{"EQ":0},"title":{"TYPE":"str"},"hasBargain":{"EQ":false}},
+}

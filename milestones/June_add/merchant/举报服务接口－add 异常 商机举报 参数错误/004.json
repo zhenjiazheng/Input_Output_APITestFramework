@@ -1,0 +1,5 @@
+{
+    "input":{"clientType":"MerchantService","method":"merchant_login","account":"{{pre.MUser2}}","password":"123456"},
+    "output":{"TYPE":"str"},
+    "key":["sessionId2"]
+}
